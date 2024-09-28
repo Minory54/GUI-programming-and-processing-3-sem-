@@ -24,5 +24,20 @@ namespace DrawGeometry
         {
             InitializeComponent();
         }
+
+        private void btn_Triangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Rectangle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Square_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

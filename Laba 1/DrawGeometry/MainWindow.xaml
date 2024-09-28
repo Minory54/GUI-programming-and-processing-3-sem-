@@ -29,18 +29,22 @@
     </Window.Resources>
 
     <Grid>
-        <Button Name="btn_Triangle" Content="Треугольник" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
-        <Button Name="btn_Rectangle" Content="Прямоугольник" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top"/>
-        <Button Name="btn_Square" Content="Квадрат" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top"/>
+        <Button Name="btn_Triangle" Content="Треугольник" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Click="btn_Triangle_Click"/>
+        <Button Name="btn_Rectangle" Content="Прямоугольник" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Click="btn_Rectangle_Click"/>
+        <Button Name="btn_Square" Content="Квадрат" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Click="btn_Square_Click"/>
         
-        <Label Content="X" HorizontalAlignment="Left" Margin="20,67,0,0" VerticalAlignment="Top"/>
         <Slider  Name="sl_X" Margin="42,71,20,0" VerticalAlignment="Top" Value="50" Maximum="100"/>
+        
+        <Slider Name="sl_Y" Margin="35,94,90,0" VerticalAlignment="Top" Value="50" Maximum="100">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="90"/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
 
-        <Label Content="Y" VerticalAlignment="Top" Margin="20,102,0,0"/>
-        <Slider Name="sl_Y" Margin="42,106,20,0" VerticalAlignment="Top" Value="50" Maximum="100"/>
-
-        <Border Width="400" Height="250" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,20">
-            <Canvas Name="canvas" Width="390" Height="240"/>
+        <Border  Height="320" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="40,0,20,20">
+            <Canvas Name="Scene" Margin="1"/>
         </Border>
     </Grid>
 </Window>
