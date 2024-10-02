@@ -5,8 +5,108 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnemyEditor"
         mc:Ignorable="d"
-        Title="Enemy Editor" MinHeight="400" Height="400" Width="800">
-    <Grid>
+        Title="Enemy Editor" Height="400" Width="700" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Lavender"></Setter>
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+            <Setter Property="Padding" Value="8,4"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="MinWidth" Value="70"></Setter>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="MediumPurple"></Setter>
+            <Setter Property="Margin" Value="0 -4"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+            <Setter Property="Padding" Value="8,2"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid ShowGridLines="False" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
         
+        <Label Content="List of enimies:" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+        <ListBox Margin="0 25 0 0"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button Content="Save" HorizontalAlignment="Stretch" Margin="0 0 10 0"/>
+            <Button Content="Load" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+
+
+        <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 25 0 0" Height="100" Width="100">
+            <Image/>            
+        </Border>
+
+        <StackPanel Grid.Column="2" Margin="0 8 0 0" >
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+
+            <StackPanel Margin="0 2 10 0">
+                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
+                <TextBox />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"  Grid.Column="2" Grid.Row="2" Margin="0 0 10 0">
+            <Button Content="Add" HorizontalAlignment="Right"  Margin="0 0 10 0"/>
+            <Button Content="Remove" HorizontalAlignment="Right"/>            
+        </StackPanel>
+
+        <ListBox Grid.RowSpan="3" Grid.Column="3"/>
+       
     </Grid>
 </Window>
