@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DrawGeometry
 {
-    internal class Point2D
+    public class Point2D
     {
         private int X;
         private int Y;

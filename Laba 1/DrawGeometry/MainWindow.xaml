@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DrawGeometry"
         mc:Ignorable="d"
-        Title="Draw Geometry" MinWidth="450" MinHeight="450"  Width="450" Height="450">
+        Title="Draw Geometry" MinWidth="400" MinHeight="450"  Width="400" Height="450">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -33,9 +33,9 @@
         <Button Name="btn_Rectangle" Content="Прямоугольник" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Click="btn_Rectangle_Click"/>
         <Button Name="btn_Square" Content="Квадрат" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Click="btn_Square_Click"/>
         
-        <Slider  Name="sl_X" Margin="42,71,20,0" VerticalAlignment="Top" Value="50" Maximum="100"/>
-        
-        <Slider Name="sl_Y" Margin="35,94,90,0" VerticalAlignment="Top" Value="50" Maximum="100">
+        <Slider Name="sl_X" Width="300" Margin="20,71,0,0" VerticalAlignment="Top" Value="150" Maximum="300" ValueChanged="sl_X_ValueChanged"/>
+
+        <Slider Name="sl_Y" Width="300" Margin="0,92,0,0" VerticalAlignment="Top" Value="150" Maximum="300" ValueChanged="sl_Y_ValueChanged">
             <Slider.RenderTransform>
                 <TransformGroup>
                     <RotateTransform Angle="90"/>
@@ -43,8 +43,8 @@
             </Slider.RenderTransform>
         </Slider>
 
-        <Border  Height="320" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="40,0,20,20">
-            <Canvas Name="Scene" Margin="1"/>
+        <Border  Height="300" Width="300" VerticalAlignment="Bottom" Margin="40,0,20,20">
+            <Canvas Name="Scene" Height="300" Width="300"/>
         </Border>
     </Grid>
 </Window>
