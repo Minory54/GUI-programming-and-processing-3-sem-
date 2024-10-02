@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EnemyEditor"
         mc:Ignorable="d"
-        Title="Enemy Editor" Height="400" Width="700" ResizeMode="NoResize">
+        Title="Enemy Editor" Height="420" Width="700" ResizeMode="NoResize">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -41,7 +41,7 @@
     <Grid ShowGridLines="False" Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"></ColumnDefinition>
@@ -50,63 +50,60 @@
             <ColumnDefinition Width="200"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        
         <Label Content="List of enimies:" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-        <ListBox Margin="0 25 0 0"/>
+        <ListBox x:Name="lb_listEnimes" Margin="0 25 0 0"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
-            <Button Content="Save" HorizontalAlignment="Stretch" Margin="0 0 10 0"/>
-            <Button Content="Load" HorizontalAlignment="Stretch"/>
+            <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Stretch" Margin="0 0 10 0"/>
+            <Button x:Name="btn_load" Content="Load" HorizontalAlignment="Stretch"/>
         </StackPanel>
 
-
         <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 25 0 0" Height="100" Width="100">
-            <Image/>            
+            <Image x:Name="img_enemy"/>            
         </Border>
 
         <StackPanel Grid.Column="2" Margin="0 8 0 0" >
             <StackPanel Margin="0 2 10 0">
                 <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <TextBox x:Name="tb_iconName" />
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Enemy Name:" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_enemyName"/>
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Base life:" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_baseLife" />
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Life modifire:" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_lifeModifire" />
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Base gold:" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_baseGold" />
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Glod modifire:" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_goldModifire" />
             </StackPanel>
 
             <StackPanel Margin="0 2 10 0">
-                <Label Content="Icon name:" HorizontalAlignment="Stretch"/>
-                <TextBox />
+                <Label Content="Spawn chance (1 - 100):" HorizontalAlignment="Stretch"/>
+                <TextBox x:Name="tb_spawnChance" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Orientation="Horizontal"  Grid.Column="2" Grid.Row="2" Margin="0 0 10 0">
-            <Button Content="Add" HorizontalAlignment="Right"  Margin="0 0 10 0"/>
-            <Button Content="Remove" HorizontalAlignment="Right"/>            
+            <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Right"  Margin="0 0 10 0"/>
+            <Button x:Name="btn_remove" Content="Remove" HorizontalAlignment="Right"/>            
         </StackPanel>
 
-        <ListBox Grid.RowSpan="3" Grid.Column="3"/>
-       
+        <ListBox x:Name="lb_icon" Grid.RowSpan="3" Grid.Column="3"/>
     </Grid>
 </Window>
