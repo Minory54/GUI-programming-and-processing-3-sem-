@@ -94,7 +94,7 @@ namespace EnemyEditor
 
             for (int i = 0; i < enemies.Count; i++)
             {
-                enemyNames[i] = enemies[i].getName();
+                enemyNames.Add(enemies[i].getName());
             }
 
             return enemyNames;
