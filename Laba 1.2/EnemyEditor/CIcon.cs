@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace EnemyEditor
 {
     internal class CIcon
     {
-        private string name;
-        private string iconPath;
+        public string name { get; }
+        public BitmapImage iconPath { get; }
         private int iconWidth;
         private int iconHeight;
 
@@ -19,11 +20,13 @@ namespace EnemyEditor
         { 
             this.iconWidth = iconWidth;
             this.iconHeight = iconHeight;
-            this.iconPath = iconPath;
+            this.iconPath = new BitmapImage(new Uri(iconPath));
+
+            name = System.IO.Path.GetFileName(iconPath);
         }
 
         public string getName() { return name; }
-        public string getPath() { return iconPath; }
+        public BitmapImage getPath() { return iconPath; }
         public int getIconWidth() { return iconWidth; }
         public int getIconHeight() { return iconHeight; }
     }

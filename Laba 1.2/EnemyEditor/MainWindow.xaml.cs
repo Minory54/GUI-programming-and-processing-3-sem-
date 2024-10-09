@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,17 +22,25 @@ namespace EnemyEditor
     /// </summary>
     public partial class MainWindow : Window
     {
-        CEnemyTemplateList enemyList = new CEnemyTemplateList();
+        CEnemyTemplateList enemyList = new CEnemyTemplateList(); 
         CEnemyTemplate enemy;
 
         CIconList iconList = new CIconList();
         CIcon icon;
 
+        CIcon selectedEnemyIcon;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
-            iconList.LoadIcons("");
+            iconList.LoadIcons("/icons/Monsters");
+
+            foreach (var icon in iconList.getCIconList())
+            {
+                lb_icon.Items.Add(icon);
+            }
         }
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
@@ -46,7 +55,7 @@ namespace EnemyEditor
 
             for (int i = 0; i < enemyList.GetListOfEnemyNames().Count; i++)
             {
-                lb_listEnimes.Items.Add(enemyList.GetListOfEnemyNames()[i]);
+                lb_listEnimes.Items.Add(enemyList.getEnemyByIndex(i));
             }
         }
 
@@ -70,6 +79,20 @@ namespace EnemyEditor
         {
             enemyList.deleteEnemyByName(lb_listEnimes.SelectedValue.ToString());
             lb_listEnimes.Items.RemoveAt(lb_listEnimes.SelectedIndex);
+        }
+
+        private void lb_icon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lb_icon.SelectedValue is CIcon value)
+            {
+                img_enemy.Source = value.getPath();
+                tb_iconName.Text = value.getName();
+            }
+        }
+
+        private void lb_listEnimes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -17,9 +17,14 @@ namespace EnemyEditor
             icons = new List<CIcon>();
         }
 
+        public List<CIcon> getCIconList()
+        {
+            return icons;
+        }
+
         public void LoadIcons(string path)
         {
-            string folder = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + path;
+            string folder = Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + path;
             string filter = "*.png";
             string[] files = Directory.GetFiles(folder, filter);
 

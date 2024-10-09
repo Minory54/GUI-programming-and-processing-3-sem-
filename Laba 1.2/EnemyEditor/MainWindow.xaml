@@ -51,7 +51,7 @@
         </Grid.ColumnDefinitions>
 
         <Label Content="List of enimies:" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-        <ListBox x:Name="lb_listEnimes" Margin="0 25 0 0"/>
+        <ListBox x:Name="lb_listEnimes" Margin="0 25 0 0" SelectionChanged="lb_listEnimes_SelectionChanged"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2">
             <Button x:Name="btn_save" Content="Save" HorizontalAlignment="Stretch" Margin="0 0 10 0" Click="btn_save_Click"/>
@@ -104,10 +104,13 @@
             <Button x:Name="btn_remove" Content="Remove" HorizontalAlignment="Right" Click="btn_remove_Click"/>            
         </StackPanel>
 
-        <ListBox x:Name="lb_icon" Grid.RowSpan="3" Grid.Column="3">
+        <ListBox x:Name="lb_icon" Grid.RowSpan="3" Grid.Column="3" SelectionChanged="lb_icon_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Image x:Name="img_lbEnemy"></Image>
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="{Binding iconPath}"/>
+                        <Label Content="{Binding name}"/>
+                    </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
