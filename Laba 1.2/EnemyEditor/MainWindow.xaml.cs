@@ -1,7 +1,9 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,7 +74,7 @@ namespace EnemyEditor
             CEnemyTemplate enemy = new CEnemyTemplate(name, iconName, baseLife, lifeModifire, baseGold, goldModifire, spawnChance);
             enemyList.addEnemy(enemy);
 
-            lb_listEnimes.Items.Add(enemy.getName());
+            lb_listEnimes.Items.Add(enemy);
         }
 
         private void btn_remove_Click(object sender, RoutedEventArgs e)
@@ -92,6 +94,19 @@ namespace EnemyEditor
 
         private void lb_listEnimes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            try
+            {
+                tb_iconName.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getIconName();
+                tb_enemyName.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getName();
+                tb_baseLife.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getBaseLife().ToString();
+                tb_lifeModifire.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getLifeModifier().ToString();
+                tb_baseGold.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getBaseGold().ToString();
+                tb_goldModifire.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getGoldModifier().ToString();
+                tb_spawnChance.Text = (lb_listEnimes.SelectedValue as CEnemyTemplate).getSpawnChance().ToString();
+
+                string file = System.IO.Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + $"/icons/Monsters/{tb_iconName.Text}";
+                img_enemy.Source = new BitmapImage(new Uri(file));
+            } catch { }
 
         }
     }

@@ -10,7 +10,7 @@ namespace EnemyEditor
     internal class CEnemyTemplate
     {
         [JsonInclude]
-        private string name;
+        public string name { get; }
         [JsonInclude]
         private string iconName;
         [JsonInclude]
