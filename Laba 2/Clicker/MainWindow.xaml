@@ -5,8 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Clicker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Clicker" Height="350" Width="300" ResizeMode="NoResize">
 
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="Lavender"></Setter>
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+            <Setter Property="Padding" Value="8,4"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="MinWidth" Value="70"></Setter>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+        </Style>
+        <Style x:Key="Title" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="MediumPurple"></Setter>
+            <Setter Property="Margin" Value="0 -4"></Setter>
+            <Setter Property="FontSize" Value="16"></Setter>
+        </Style>
+        <Style x:Key="Subtitle" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="MediumPurple"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+            <Setter Property="BorderBrush" Value="#FFBEBEF1"></Setter>
+            <Setter Property="BorderThickness" Value="2px"></Setter>
+            <Setter Property="Padding" Value="8,2"></Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="70"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical">
+            <Label x:Name="l_enemyName" Content="Enemy name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, 10, 0 ,0" Style="{StaticResource Title}"/>
+            <Label x:Name="l_enemylvl" Content="1 lvl" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0, -10"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical"  Grid.Row="1">
+            <Border Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="120" Width="120">
+                <Image x:Name="img_enemy" Width="100" Height="100"/>
+            </Border>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="HP" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource Subtitle}"/>
+                <Label x:Name="l_HP" Content="{Binding Enemy}" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource Subtitle}" Foreground="Black" Margin="-5, 0, 10, 0"/>
+
+                <Label Content="GOLD" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource Subtitle}"/>
+                <Label x:Name="l_GOLD" Content="100" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource Subtitle}" Foreground="Black" Margin="-5, 0, 0, 0"/>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" Margin="10,0">
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Label Content="DMG" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource Subtitle}"/>
+                <Label x:Name="l_DMG" Content="100" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource Subtitle}" Foreground="Black" Margin="-5, 0, 10, 0"/>
+
+                <Label Content="GOLD" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Style="{StaticResource Subtitle}"/>
+                <Label x:Name="l_playerGOLD" Content="100" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Style="{StaticResource Subtitle}" Foreground="Black" Margin="-5, 0, 0, 0"/>
+            </StackPanel>
+
+            <Button x:Name="btn_upgrade" Content="Upgrage" Click="btn_upgrade_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
